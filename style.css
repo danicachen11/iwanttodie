@@ -1,0 +1,517 @@
+/* =====General===== */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: black;
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+button {
+  border: none;
+  background-color: #C99C6B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: block;   
+  margin: 1rem auto 0; 
+  padding: 1rem 2.5rem;
+}
+
+button:hover {
+  background-color: #494C6C;
+  transform: translateY(-2px);
+}
+
+/* =====Header===== */
+.site-header {
+  background-color: #494C6C;
+  width: 100%;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 0rem;
+}
+
+
+
+@media (max-width: 800px) {
+  .header-inner {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0;
+  
+}
+
+.brand .logo {
+  width: 80px; 
+  height: auto;   
+  display: block;
+}
+
+.brand .brand-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.nav-link:hover {
+  color: #C99C6B;
+}
+
+/* ----- Hamburger button ----- */
+.hamburger {
+  display: none; 
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+/* ----- Mobile menu panel ----- */
+.mobile-menu {
+  display: none;
+  position: fixed;  
+  top: 0; 
+  right: 0;
+  height: 100vh;  
+  width: 200px;
+  flex-direction: column;
+  background-color: #494C6C;
+  padding: 2rem;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* When active, show the mobile menu */
+.mobile-menu.active {
+  display: flex;
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  font-weight: 550;
+}
+
+/* ----- Media Query for mobile ----- */
+@media (max-width: 800px) {
+  .main-nav {
+    display: none;          /* hide desktop nav on mobile */
+  }
+
+  .hamburger {
+    display: block;         /* show hamburger on mobile */
+  }
+}
+
+
+
+/* =====Hero===== */
+/* ---------- HERO: flexible + wrapping layout ---------- */
+.hero-section {
+  width: 100%;
+  background-color: #f9f7f5;
+  padding: 5rem 0;
+  box-sizing: border-box;
+  overflow: hidden; /* safety */
+  display: flex;
+  flex-wrap: wrap;           /* allow items to wrap to next row */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Use a .hero-inner container if you prefer; this works directly with hero-left/right */
+.hero-left,
+.hero-right {
+  /* flexible, but prefer approx 48% on wide screens */
+  flex: 1 1 480px;   /* grow, shrink, base 480px */
+  min-width: 280px;  /* when space < 280px, it will wrap */
+  max-width: 600px;  /* prevents columns from becoming too wide */
+  box-sizing: border-box;
+}
+
+/* text sizing */
+.hero-left h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.hero-left p.mid {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* image behavior */
+.hero-right {
+  display: flex;           /* to help center the image if needed */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;        /* prevent image spill */
+}
+
+.hero-right img,
+.hero-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;       /* preserves crop nicely */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* container padding adjustments: keep header alignment but reduce on small screens */
+.container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+/* Responsive: when viewport is narrow, columns naturally wrap because of min-width.
+   But we still tighten padding and scale fonts for mobile. */
+@media (max-width: 900px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-left p.mid {
+    font-size: 1.2rem;
+  }
+}
+
+/* Optional extra safety for very small phones */
+@media (max-width: 480px) {
+  .hero-left, .hero-right {
+    flex-basis: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+    gap: 1.25rem;
+  }
+}
+
+/*
+.hero-section {
+  justify-content: center;
+  padding: 5rem 0;
+  background-color: #f9f7f5;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .hero-section {
+    flex-wrap: wrap;
+  }
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-left, .hero-right {
+  flex: 1 1 40%;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.hero-left p.mid {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 800px) {
+  .hero-left, .hero-right {
+    flex: none;    
+    width: 100%;    
+    max-width: 100%;  
+  }
+
+  .hero-right img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+}
+*/
+
+/* ================= MENU SECTION ================= */
+.menu-section {
+	background-color: #f4efe9;
+	padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.menu-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-section .section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #555;
+}
+
+/* Menu Cards Container */
+.menu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  
+}
+
+/* Individual Card */
+.menu-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  flex: 1 1 250px; /* responsive width */
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.menu-card h3 {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.menu-card p {
+  font-size: 0.95rem;
+  color: #555;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.menu-card .price {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #C99C6B;
+  font-size: 1.1rem;
+}
+
+
+/* ================= CATS / ATMOSPHERE SECTION ================= */
+.cats-section {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  background-color: #ece8e5;
+}
+
+.cats-section .band-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cats-display {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 3rem; 
+  flex-wrap: wrap; 
+}
+
+.cat-card p {
+  font-size: 1rem;
+  color: black;
+  margin: 0;
+  max-width: 100%;  
+  line-height: 1.4; 
+  text-align: center;
+}
+
+.cat-card {
+  display: flex;          
+  flex-direction: column;
+  align-items: center;    
+  gap: 1rem;
+  flex: 1 1 250px;
+  max-width: 250px;        
+  text-align: center;     
+}
+
+.cat-card img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.cat-card img {
+  width: 225px;   
+  height: 225px;        
+  object-fit: cover;    
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cat-name {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 600px) {
+  .menu-card, .cat-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .cats-display {
+    gap: 1.5rem;
+  }
+
+  .menu-cards {
+    gap: 1.5rem;
+  }
+}
+
+
+/*Form*/
+.newsletter-section {
+  padding: 4rem 5%;
+  background-color: #f9f7f5;
+  text-align: center;
+}
+
+.newsletter-section input {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  max-width: 90%;
+}
+
+
+.form-message {
+  display: block;
+  margin-top: 1rem; 
+  color: red;
+  font-weight: bold;
+  width: 100%;        
+  text-align: center;  
+}
+
+
+
+/* ================= VISIT / CONTACT ================= */
+.visit-section {
+  padding: 6rem 5%;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* =====Footer===== */
+.site-footer {
+  background-color: #494C6C;
+  color: #fff;
+  padding: 4rem 5%;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left h2 {
+  margin-bottom: 1rem;
+}
+
+.muted {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+
+
