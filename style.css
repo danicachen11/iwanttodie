@@ -1,4 +1,4 @@
-/*================ General================= */
+/*======================= General======================= */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -20,8 +20,8 @@ img {
 }
 @media (max-width: 800px) {
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 16px;
+    padding-right:16px;
   }
 }
 
@@ -36,15 +36,15 @@ button {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   display: block;   
-  margin: 1rem auto 0; 
-  padding: 1rem 2.5rem;
+  margin: 16px auto 0; 
+  padding: 16px 40px;
 }
 button:hover {
   background-color: #494C6C;
   transform: translateY(-2px);
 }
 
-/* ======================Header================ */
+/* ============================= Header ============================= */
 .site-header {
   background-color: #494C6C;
   width: 100%;
@@ -54,29 +54,30 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 0rem;
+  margin-left: 0px;
 }
 @media (max-width: 800px) {
   .header-inner {
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
+/*The brand logo and name*/
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   margin-left: 0;
 }
 .logo {
   width: 80px; 
   height: auto;   
   display: block;
-  margin-left: 2rem;
+  margin-left: 32px;
 }
 .brand-name {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -85,8 +86,8 @@ button:hover {
 /* ----- Navigation----- */
 .main-nav {
   display: flex;
-  gap: 1.5rem;
-  margin-right: 2rem;
+  gap: 24px;
+  margin-right: 32px;
 }
 
 .nav-link {
@@ -104,10 +105,10 @@ button:hover {
   display: none; 
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 32px;
   color: white;
   cursor: pointer;
-  margin-right: 1.5rem;
+  margin-right: 24px;
 }
 /* Menu after clicking hamburger button*/
 .mobile-menu {
@@ -118,7 +119,7 @@ button:hover {
   width: 200px;
   flex-direction: column;
   background-color: #494C6C;
-  padding: 2rem;
+  padding: 32px;
   box-shadow: -2px 0 10px rgba(0,0,0,0.2);
 }
 /* when active show mobile menu */
@@ -129,7 +130,7 @@ button:hover {
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  padding: 0.75rem 0;
+  padding: 12px 0;
   font-weight: 550;
 }
 
@@ -144,12 +145,12 @@ button:hover {
   }
 }
 
-/* ====================Hero Section==================== */
+/* =========================== Hero Section =========================== */
 
 .hero-section {
   width: 100%;
   background-color: #f9f7f5;
-  padding: 5rem 0;
+  padding: 80px 0;
   box-sizing: border-box;
 }
 
@@ -157,11 +158,11 @@ button:hover {
   display: flex;
   flex-wrap: wrap;           
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: space-evenly;
+  gap: 8px;
   max-width: 1440px;
   margin: 0 auto;        
-  padding: 0 2rem;        
+  padding: 0 32px;        
   box-sizing: border-box;
 }
 
@@ -172,12 +173,12 @@ button:hover {
 }
 
 .hero-left h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 48px;
+  margin-bottom: 32px;
 }
 .hero-left p.mid {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 24px;
+  margin-bottom: 32px;
 }
 
 .hero-right img {
@@ -186,21 +187,18 @@ button:hover {
   height: auto;
   display: block;
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/*Stack left and right side on mobile*/
+/*changes so that left and right side stack vertically on mobile*/
 @media (max-width: 800px) {
 	.hero-section {
 		flex-wrap: wrap;
 	}
-	
   .hero-left, .hero-right {
     flex: none;    
     width: 100%;    
     max-width: 100%;  
   }
-
   .hero-right img {
     width: 100%;
     max-width: 100%;
@@ -208,47 +206,77 @@ button:hover {
   }
 }
 
-
-/* ================= MENU SECTION ================= */
-.menu-section {
-	background-color: #f4efe9;
-	padding-top: 4rem;
-  padding-bottom: 4rem;
+/*modal javascript*/
+.modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.5);
+	justify-content: center;
+	align-items: center;
+}
+/* shows when is added */
+.modal.show {
+  display: flex;
 }
 
-/* --Text sizing rules-- */
+.modal-content {
+  background: white;
+	padding: 20px;
+	min-width: 280px;
+	border-radius: 4px;
+	position: relative;
+}
+
+.close {
+  position: absolute;
+	top: 6px;
+	right: 10px;
+	cursor: pointer;
+}
+
+
+
+/* =============================== MENU SECTION ======================== */
+.menu-section {
+	background-color: #f4efe9;
+	padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* -- text sizing rules-- */
 .menu-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 .menu-subtitle {
   text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
+  font-size: 20px;
+  margin-bottom: 48px;
   color: #555;
 }
 .menu-card h3 {
-  margin: 1rem 0 0.5rem 0;
+  margin: 16px 0 8px 0;
 }
 .menu-card p {
-  font-size: 0.95rem;
+  font-size: 15px;
   color: #555;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 16px 16px 16px;
 }
 .menu-card .price {
   display: block;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   color: #C99C6B;
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 /* --Menu Cards container== */
 .menu-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 32px;
   justify-content: center;
 }
 /* for the 3 individual cards */
@@ -263,6 +291,7 @@ button:hover {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/*when hover over, box moves slightly and with shadow*/
 .menu-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.15);
@@ -276,7 +305,7 @@ button:hover {
 
 
 
-/* ================= Cats Section ================= */
+/* =============================== Cats Section ======================== */
 .cats-section {
   background-color: #ece8e5;
 }
@@ -284,7 +313,7 @@ button:hover {
 .cats-section .cat-inner {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap:  32px;
   flex-wrap: wrap;
 }
 
@@ -292,8 +321,8 @@ button:hover {
 .cats-display {
   display: flex;
   justify-content: center;
-  gap: 5rem;
-  margin-top: 3rem; 
+  gap: 80px;
+  margin-top: 48px; 
   flex-wrap: wrap; 
 }
 
@@ -301,11 +330,11 @@ button:hover {
   display: flex;          
   flex-direction: column;
   align-items: center;    
-  gap: 1rem;
+  gap: 16px;
   flex: 1 1 250px;
   max-width: 250px;        
   text-align: center;
-  margin-bottom: 2rem;     
+  margin-bottom: 32px;     
 }
 
 .cat-card img {
@@ -323,10 +352,10 @@ button:hover {
 
 /* --Cat Section text-- */
 .cat-title, .cat-subtitle {
-  margin: 2rem;
+  margin: 32px;
 }
 .cat-card p {
-  font-size: 1rem;
+  font-size: 16px;
   color: black;
   margin: 0;
   max-width: 100%;  
@@ -334,9 +363,9 @@ button:hover {
   text-align: center;
 }
 .cat-name {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 17px;
 }
 
 /* for mobile width */
@@ -347,24 +376,24 @@ button:hover {
   }
 
   .cats-display {
-    gap: 1.5rem;
+    gap: 24px;
   }
 
   .menu-cards {
-    gap: 1.5rem;
+    gap: 24px;
   }
 }
 
-/* ================Form===========================*/
+/* ======================= Form ==================================*/
 .newsletter-section {
-  padding: 4rem 5%;
+  padding: 64px 50px 64px 50px;
   background-color: #f9f7f5;
   text-align: center;
 }
 
 .newsletter-section input {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  padding: 8px 16px;
+  margin: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 200px;
@@ -373,7 +402,7 @@ button:hover {
 
 .form-message {
   display: block;
-  margin-top: 1rem; 
+  margin-top: 16px; 
   color: red;
   font-weight: bold;
   width: 100%;        
@@ -381,36 +410,30 @@ button:hover {
 }
 
 
-/* =================Footer================= */
+/* ======================== Footer =============================== */
 .site-footer {
   background-color: #494C6C;
   color: #fff;
-  padding: 4rem 5%;
+  padding: 64px  50px 64px 50px;
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 32px;
 }
 
 .footer-left h2 {
-  margin-bottom: 1rem;
-  marign-right: 2rem;
+  margin-bottom: 16px;
+  marign-right: 32px;
 }
 
-.muted {
+.muted, .footer-right h2 {
   opacity: 0.7;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
-/* visit info */
-.visit-section {
-  padding: 6rem 5%;
-  background-color: #fff;
-  border-top: 1px solid #ddd;
-}
 
 
 
